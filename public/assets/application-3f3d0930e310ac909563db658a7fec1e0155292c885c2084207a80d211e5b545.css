@@ -1,0 +1,159 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+ /* IE */
+
+@font-face {
+font-family: JapanSans;
+src: url('JapanSans90.otf');
+}
+/* Firefox, Opera, Safari */
+@font-face {
+font-family: JapanSans;
+src: url('JapanSans90.otf') format(”truetype”);
+}
+
+.home {
+  background-image: url("business_index.jpg");
+}
+
+body {
+     font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Garamond Helvetica, Trebuchet, sans-serif;
+}
+
+input {
+  font-size: 16px;
+}
+
+a {
+  color: #000;
+}
+a:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+table th,
+table td {
+  font-size: 18px;
+  padding: 5px;
+}
+table tbody tr td:nth-child(1) {
+  width: 35%;
+  text-align: center;
+}
+table tbody tr td:nth-child(2) {
+  width: 65%;
+}
+table tbody tr:nth-child(1),
+table tbody tr:nth-child(2),
+table tbody tr:nth-child(3) {
+  /*border-bottom: 2px solid grey;*/
+}
+
+.container {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.title {
+  font-size: 18px;
+  border-left: 8px solid #ff9800;
+  border-bottom: 2px solid #ff9800;
+  padding: 5px;
+}
+
+.show-block div {
+  font-size: 16px;
+}
+
+.show-block .title {
+  font-size: 24px;
+  border-left: 12px solid #ff9800;
+  border-bottom: 3px solid #ff9800;
+}
+
+.search-tabs {
+  text-align: center;
+}
+.search-tabs div {
+  font-size: 20px;
+}
+
+#place-tab,
+#business-tab,
+#role-tab {
+  background-color: #fff; /* #fff3e0; */
+  border-radius: 8px 8px 0 0;
+}
+#place-block,
+#business-block,
+#role-block {
+  display: none;
+  border-radius: 0 0 2px 2px;
+  padding: 15px 0 0px 0;
+}
+
+.term-item{
+  padding: 2px 0 2px 0;
+  font-size: 20px;
+
+}
+
+.navi-root a {
+  color: #ff6d00;
+  font-size: 18px;
+}
+
+footer {
+  font-size: 12px;
+}
+
+
+/* -----------------------------CHANGE MATERIALIZE------------------------------- */
+
+.row {
+  margin-bottom: 0px;
+}
+
+.input-field input[type=text]:focus + label {
+  color: #ff9800;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #ff9800;
+  box-shadow: 0 1px 0 0 #ff9800;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: #ff9800;
+}
+
+.nav-wrapper {
+  line-height: normal;
+}
+
+.nav-wrapper div a.breadcrumb {
+  font-size: 16px;
+  color: #ff9800;
+}
+
+.btn {
+  background-color: #ff9800;
+}
+.btn:hover {
+  background-color: #ffa726;
+}

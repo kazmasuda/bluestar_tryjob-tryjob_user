@@ -1,0 +1,81 @@
+<br/>
+<div class="row valign-wrapper orange lighten-5">
+  <div class="col s12 valign-wrapper navi-root">
+    <%= link_to "HOME", "/" %>
+    <i class="material-icons">chevron_right</i>
+    <%= link_to @search_name, "/projects/" + @link + "/" + @search_id.to_s %>
+    <i class="material-icons">chevron_right</i>
+    <%= link_to @project.title, "/projects/" + @link + "/" + @search_id.to_s + "/show/" + @project.id.to_s %>
+  </div>
+</div>
+
+<div class="container">
+
+<br/><br/>
+  <%= render 'projects/detail' %>
+<br/><br/>
+
+  <% if @apply.errors.any? || @store.errors.any? %>
+    <div class="card-panel red lighten-4 red-text text-accent-4">
+      <h5>入力内容にエラーがあります</h5>
+      <ul>
+        <% @apply.errors.each do |attr, msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        <% @store.errors.each do |attr, msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+    <div class="card-panel white">
+      <%= form_for @apply, :url => applys_confirm_path do |f| %>
+        <%= f.hidden_field :project_id %>
+        <%= hidden_field_tag 'search[id]', @search_id %>
+        <%= hidden_field_tag 'search[name]', @search_name %>
+        <%= hidden_field_tag 'search[link]', @link %>
+        <h5 class="orange-text">この案件に応募しますか？</h5>
+
+        <div>
+          <%= f.label "名前" %>
+          <%= f.text_field :name %>
+        </div>
+
+        <div>
+          <%= f.label :email %>
+          <%= f.email_field :email %>
+        </div>
+
+        <div>
+          <%= f.label "生年月日" %>
+          <%= f.date_field :birthdate, :class => "datepicker" %>
+        </div>
+
+        <div>
+          <%= f.label "性別" %><br>
+          <%= f.radio_button :sex, 1 %> <%= f.label :sex_1, "男性" %><br/>
+          <%= f.radio_button :sex, 2 %> <%= f.label :sex_2, "女性" %>
+        </div>
+
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>経歴書</span>
+            <%= f.file_field :avatar %>
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+
+        <div>&nbsp;</div>
+        <div>
+          <%= f.submit "エントリー", :class => "btn" %>
+        </div>
+      <% end %>
+    </div>
+
+<%= link_to @search_name + "カテゴリーに戻る", "/projects/" + @link + "/" + @search_id.to_s, :class => "btn" %>
+
+</div>

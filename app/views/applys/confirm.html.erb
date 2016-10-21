@@ -1,0 +1,55 @@
+
+<br/>
+<div class="row valign-wrapper orange lighten-5">
+  <div class="col s12 valign-wrapper navi-root">
+    <%= link_to "HOME", "/" %>
+    <i class="material-icons">chevron_right</i>
+    <%= link_to @search_name, "/projects/" + @link + "/" + @search_id.to_s %>
+    <i class="material-icons">chevron_right</i>
+    <%= link_to @project.title, "/projects/" + @link + "/" + @search_id.to_s + "/show/" + @project.id.to_s %>
+  </div>
+</div>
+
+<div class="container">
+
+  <h5>この内容で間違いありませんか？</h5>
+
+  <%= render 'projects/detail' %>
+
+  <div class="card-panel white">
+  <%= form_for @apply, :url => applys_thanks_path do |f| %>
+  <%= f.hidden_field :name %>
+  <%= f.hidden_field :email %>
+  <%= f.hidden_field :birthdate %>
+  <%= f.hidden_field :sex %>
+  <%= f.hidden_field :project_id %>
+  <%= f.hidden_field :avatar %>
+  <%= f.hidden_field :file_path %>
+  <div class="row">
+    <div class="col l2 m3 s12 grey-text"><b>名前</b></div>
+    <div class="col l10 m9 s12"><%= @apply.name %></div>
+  </div>
+  <div class="row">
+    <div class="col l2 m3 s12 grey-text"><b>Email</b></div>
+    <div class="col l10 m9 s12"><%= @apply.email %></div>
+  </div>
+  <div class="row">
+    <div class="col l2 m3 s12 grey-text"><b>生年月日</b></div>
+    <div class="col l10 m9 s12"><%= @apply.birthdate %></div>
+  </div>
+  <div class="row">
+    <div class="col l2 m3 s12 grey-text"><b>性別</b></div>
+    <div class="col l10 m9 s12">
+      <% if @apply.sex.to_i == 1 then %>男性<% else %>女性<% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col l2 m3 s12 grey-text"><b>経歴書</b></div>
+    <div class="col l10 m9 s12"><%= @apply.avatar %></div>
+  </div>
+  <hr/>
+  <%= f.submit "エントリー", :class => "btn" %>
+  <% end %>
+  </div>
+
+</div>

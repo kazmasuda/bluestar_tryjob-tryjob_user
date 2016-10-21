@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <h3>お問い合わせのメールが届きました。</h3>
+    <p>
+      Name: <%= @contact.name %><br/>
+      Enterprise: <%= @contact.enterprise %><br/>
+      Position: <%= @contact.post %><br/>
+      E-mail: <%= @contact.email %><br/>
+      Tell: <%= @contact.tell %><br/>
+    </p>
+    <p>
+      Message:<br/>
+      <%= @contact.message %>
+    </p>
+  </body>
+</html>

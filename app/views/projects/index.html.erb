@@ -1,0 +1,51 @@
+<br/>
+<div class="row orange lighten-5">
+  <div class="col s12 valign-wrapper navi-root">
+    <%= link_to "HOME", menu_index_path %>
+    <i class="material-icons">chevron_right</i>
+    <%= link_to @search.name, "/projects/" + @link + "/" + @search.id.to_s %>
+  </div>
+</div>
+<br/>
+<!-- 以下テーブルで出力するように修正 -->
+<div class="container">
+<div class="row">
+<table class="sort">
+	<thead>
+		<tr class="orange lighten-3">
+			<td>詳細</td>
+			<td><%= sortable "title", "案件名" %></td>
+			<td><%= sortable "role", "役職" %></td>
+			<td><%= sortable "fee", "報酬" %></td>
+			<td><%= sortable "place", "勤務地" %></td>
+			<td><%= sortable "skill", "技術" %></td>
+		</tr>
+	</thead>
+	<% @projects.each do |project| %>
+	<tbody>
+		<tr>
+			<th><%= link_to "詳細", "/projects/" + @link + "/" + @search.id.to_s + "/show/" + project.id.to_s, :style=>"color:blue;" %></th>
+			<th><%= project.title %></th>
+			<th>
+				<%= Role.find(project.role).name %>
+			</th>
+			<th>
+				〜 <%= project.fee %>万/月
+			</th>
+			<th>
+			<%= Place.find(project.place).name %>
+			</th>
+			<th>
+				<% environments = Environment.where(project: project.id) %>
+              	<% environments.each do |environment| %>
+                	<% if !Skill.find_by_id(environment.skill).blank? then %>
+                  	<%= Skill.find(environment.skill).name %>&nbsp;
+                	<% end %>
+              	<% end %>
+            </th>
+		</tr>
+	</tbody>
+	<% end %>
+</table>
+</div>
+</div>

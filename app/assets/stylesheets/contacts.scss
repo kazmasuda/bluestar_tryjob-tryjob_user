@@ -1,0 +1,14 @@
+// Place all the styles related to the contacts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.confirm-form .row {
+  padding: 5px 0 5px 0;
+  border-bottom: 1px solid #ccc;
+}
+.confirm-form .row .col {
+  font-size: 18px;
+}
+.confirm-form .row div:first-child {
+  color: #888;
+}

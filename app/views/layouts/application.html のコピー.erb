@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title><%= content_for?(:title) ? yield(:title) : "Providejobs" %></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= favicon_link_tag 'applications_internet.png' %>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+  </head>
+  <body class="blue-grey-text text-darken-4" style="background-color: #008aa8;">
+  <nav>
+    <div class="nav-wrapper orange lighten-2">
+      <%= link_to("/") do %><%= image_tag "tryjob_logo_white.png", :width => "220px" %><% end %>
+    </div>
+  </nav>
+
+    <%= yield %>
+
+  <footer class="page-footer orange lighten-2">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <p class="">
+          </p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class=""></h5>
+          <ul>
+            <li class="valign-wrapper"><i class="material-icons">stop</i><%= link_to "運営会社", "http://www.bluestar.jpn.com/" %></li>
+            <li class="valign-wrapper"><i class="material-icons">stop</i><%= link_to "お問い合わせ", contact_path %></li>
+            <li class="valign-wrapper"><i class="material-icons">stop</i><%= link_to "セキュリティポリシー", security_path %></li>
+            <li class="valign-wrapper"><i class="material-icons">stop</i><%= link_to "プライバシーポリシー", privacy_path %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container blue-grey-text text-darken-4">
+      Copyright © 2016 BlueStar Inc. All Rights Reserved.
+      <%= link_to "", "", :class => "right" %>
+      </div>
+    </div>
+  </footer>
+
+  <%= javascript_include_tag "application" %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+  <script>
+  $(document).ready(function(){
+    $('.parallax').parallax();
+  });
+
+
+  /*$(document).ready(function(){
+    var url = window.location.href ;
+    if(url.match(/menu/i)){
+      $('html,body').animate({ scrollTop: 500 }, 10);
+    }
+    return false;
+  });*/
+  </script>
+  </body>
+</html>

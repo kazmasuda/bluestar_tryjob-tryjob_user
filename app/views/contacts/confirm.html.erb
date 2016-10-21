@@ -1,0 +1,41 @@
+<div class="container">
+
+  <div class="col s12 card-panel confirm-form">
+    <h4 class="grey-text">この内容で送信しますか？</h4>
+    <%= form_for @contact, :url => contacts_thanks_path do |f| %>
+    <%= f.hidden_field :name %>
+    <%= f.hidden_field :enterprise %>
+    <%= f.hidden_field :post %>
+    <%= f.hidden_field :email %>
+    <%= f.hidden_field :tell %>
+    <%= f.hidden_field :message %>
+    <div class="row">
+      <div class="col l3 m4 s6">名前</div>
+      <div class="col l9 m8 s12"><%= @contact.name %></div>
+    </div>
+    <div class="row">
+      <div class="col l3 m4 s6">会社名</div>
+      <div class="col l9 m8 s12"><%= @contact.enterprise %></div>
+    </div>
+    <div class="row">
+      <div class="col l3 m4 s6">所属・役職</div>
+      <div class="col l9 m8 s12"><%= @contact.post %></div>
+    </div>
+    <div class="row">
+      <div class="col l3 m4 s6">Email</div>
+      <div class="col l9 m8 s12"><%= @contact.email %></div>
+    </div>
+    <div class="row">
+      <div class="col l3 m4 s6">Tell</div>
+      <div class="col l9 m8 s12"><%= @contact.tell %></div>
+    </div>
+    <div class="row">
+      <div class="col l3 m4 s6">問い合わせ内容</div>
+      <div class="col l9 m8 s12"><%= @contact.message %></div>
+    </div>
+    <br/>
+    <%= f.submit "送信", :class => "btn" %>
+    <% end %>
+    </div>
+  </div>
+</div>

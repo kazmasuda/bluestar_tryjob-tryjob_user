@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <h3>面接申し込みのメールが届きました。</h3>
+    <p>
+      Name: <%= @apply.name %><br/>
+      E-mail: <%= @apply.email %><br/>
+      Birthday: <%= @apply.birthdate %><br/>
+      sex: <% if @apply.sex.to_i == 1 then %>男性<% else %>女性<% end %><br/>
+    </p>
+    <p>
+      Project ID: <%= @apply.project_id %>
+    </p>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+<div style="position: relative;">
+  <%= image_tag "business_success.jpg", :class => "responsive-img" %>
+  <!--<span class="card-panel center moveBtn waves-effect waves-red hide-on-small-only"><b>案件を探す</b></span>-->
+</div>
+
+<div class="container">
+  <div class="row">
+
+
+    <div class="col s12">
+
+      <h5 class="orange-text">カテゴリーから探す</h5>
+      <div class="row">
+
+        <div class="card search-tabs">
+          <div class="col s4 orange-text text-lighten-3" id="skill-tab">
+            <i class="medium material-icons">flash_on</i><br/><b>スキル</b>
+          </div>
+          <div class="col s4 orange-text text-lighten-3" id="role-tab">
+            <i class="medium material-icons">people</i><br/><b>ポジション</b>
+          </div>
+          <div class="col s4 orange-text text-lighten-3" id="place-tab">
+            <i class="medium material-icons">directions_subway</i><br/><b>エリア</b>
+          </div>
+        </div>
+
+        <div id="skill-block" class="col s12 orange lighten-2" name="tab[]">
+          <% @skills.each do |skill| %>
+            <div class="col l3 m4 s6">
+              <%= link_to("/projects/skill/" + skill.id.to_s) do %>
+              <div class="term-item card hoverable center">
+                <%= skill.name %>
+              </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+        <div id="role-block" class="col s12 orange lighten-2" name="tab[]">
+          <% @roles.each do |role| %>
+            <div class="col l4 m6 s6">
+              <%= link_to("/projects/role/" + role.id.to_s) do %>
+              <div class="term-item card hoverable center">
+                <%= role.name %>
+              </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+        <div id="place-block" class="col s12 orange lighten-2" name="tab[]">
+          <% @places.each do |place| %>
+            <div class="col l3 m4 s6">
+              <%= link_to("/projects/place/" + place.id.to_s) do %>
+              <div class="term-item card hoverable center">
+                <%= place.name %>
+              </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+
+    </div>
+    <h5 class="orange-text">契約までの流れ</h5>
+    <ul class="collapsible popout" data-collapsible="accordion">
+      <li>
+        <div class="orange lighten-2 collapsible-header"><i class="material-icons">play_arrow</i>STEP 1 申し込み</div>
+        <div class="white collapsible-body row">
+          <div class="col m6 s12">
+          <p>
+            希望する案件の申し込みフォームにて、お名前、メールアドレスを入力後、経歴書を添付して送信してください。<br/>
+            後日、担当者からメールが送信されます。</p>
+          </div>
+          <div class="col m6 s12 center">
+          <%= image_tag 'step1.jpg', :class => "responsive-img" %>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="orange lighten-2 collapsible-header"><i class="material-icons">play_arrow</i>STEP 2 インタビュー</div>
+        <div class="white collapsible-body row">
+          <div class="col m6 s12">
+          <p>
+            当社のエージェントに会っていただき、あなたのこと、
+            あなたの希望する条件などをインタビューという形でお聞かせください。
+          </p>
+          </div>
+          <div class="col m6 s12 center">
+          <%= image_tag 'step2.jpg', :class => "responsive-img" %>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="orange lighten-2 collapsible-header"><i class="material-icons">play_arrow</i>STEP 3 面談と契約</div>
+        <div class="white collapsible-body row">
+          <div class="col m6 s12">
+          <p>
+            企業側と対面していただき、プロジェクトの内容や現在のフェーズ、役割など現場の雰囲気を詳しく知っていただきます。<br/>
+            双方の納得のいく内容であれば契約していただき、プロジェクトへの参画が確定します。
+          </p>
+          </div>
+          <div class="col m6 s12 center">
+          <%= image_tag 'step3.jpg', :class => "responsive-img" %>
+          </div>
+        </div>
+      </li>
+    </ul>
+    </div>
+
+  </div>
+
+</div>

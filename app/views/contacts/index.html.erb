@@ -1,0 +1,55 @@
+<div class="container">
+
+  <% if @contact.errors.any? %>
+    <div class="card-panel red lighten-4 red-text text-accent-4">
+      <h5>入力内容にエラーがあります</h5>
+      <ul>
+        <% @contact.errors.each do |attr, msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col s12 card-panel">
+    <h4 class="grey-text">Contact お問い合わせ</h4>
+    <div class="container">
+      <%= form_for @contact, :url => contacts_confirm_path do |f| %>
+        <div>
+          <%= f.label "名前", :class => "" %>
+          <%= f.text_field :name, :class => "" %>
+        </div>
+
+        <div>
+          <%= f.label "会社名" %>
+          <%= f.text_field :enterprise, :class => "" %>
+        </div>
+
+        <div>
+          <%= f.label "所属・役職" %>
+          <%= f.text_field :post, :class => "" %>
+        </div>
+
+        <div>
+          <%= f.label :email, :class => "" %>
+          <%= f.email_field :email, :class => "" %>
+        </div>
+
+        <div>
+          <%= f.label :tell %>
+          <%= f.number_field :tell, :class => "" %>
+        </div>
+
+        <div>
+          <%= f.label "問い合わせ内容" %><br>
+          <%= f.text_area :message, :class => "materialize-textarea" %>
+        </div>
+
+        <div>&nbsp;</div>
+        <div>
+          <%= f.submit "送信", :class => "btn" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

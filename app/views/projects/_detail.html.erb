@@ -1,0 +1,48 @@
+
+<div class="card-panel show-block valign">
+  <div class="title"><%= @project.title %></div>
+  <div class="col l8 m10 s12">
+    <h6 class="orange-text">概要</h6>
+    <table class="orange lighten-5">
+      <tbody><tr>
+        <td class="grey-text"><b>役割</b></td>
+        <td><%= Role.find(@project.role).name %></td>
+      </tr><tr>
+        <td class="grey-text"><b>勤務地</b></td>
+        <td><%= Place.find(@project.place).name %></td>
+      </tr><tr>
+        <td class="grey-text"><b>雇用形態</b></td>
+        <td><%= Type.find(@project.type).name %></td>
+      </tr><tr>
+        <td class="grey-text"><b>支払日</b></td>
+        <td><%= @project.payday %></td>
+      </tr><tr>
+        <td class="grey-text"><b>報酬</b></td>
+        <td>〜 <%= @project.fee %>万/月</td>
+      </tr><tr>
+        <td class="grey-text"><b>技術</b></td>
+        <td>
+          <% environments = Environment.where(project: @project.id) %>
+          <% environments.each do |environment| %>
+            <% if !Skill.find_by_id(environment.skill).blank? then %>
+              <%= Skill.find(environment.skill).name %>&nbsp;
+            <% end %>
+          <% end %>
+        </td>
+      </tr><tr>
+        <td class="grey-text"><b>期間</b></td>
+        <td><%= @project.period %></td>
+      </tr><tr>
+        <td class="grey-text"><b>面接回数</b></td>
+        <td><%= @project.interview %>回予定</td>
+      </tr></tbody>
+    </table>
+
+    <div class="row">
+      <div class="col s12">
+        <h6 class="orange-text">詳細内容</h6>
+        <p class="orange lighten-5" style="padding: 10px;"><%= @project.detail %></p>
+      </div>
+    </div>
+  </div><!-- col -->
+</div>
